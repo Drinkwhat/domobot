@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-epic_games = "EpicGamesLauncher.exe"
-telegram = "Telegram.exe"
-minecraft_launcher = "MinecraftLauncher.exe"
-visual_studio_code = "Code.exe"
-=======
 among_us = "among us.exe"
 bluestack = "bluestack.exe"
 chrome = "chrome.exe"
@@ -19,4 +13,3 @@ whatsapp = "whatsapp.exe"
 all = [among_us, bluestack, chrome, discord, 
 epic_games, minecraft, minecraft_launcher, steam,
  telegram, visual_studio_code, whatsapp]
->>>>>>> prove
