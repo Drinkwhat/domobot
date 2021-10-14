@@ -10,6 +10,7 @@ telegram = "telegram.exe"
 visual_studio_code = "code.exe"
 whatsapp = "whatsapp.exe"
 
-all = [among_us, bluestack, chrome, discord, 
-epic_games, minecraft, minecraft_launcher, steam,
- telegram, visual_studio_code, whatsapp]
+all_games = [among_us, bluestack, discord, epic_games, minecraft, minecraft_launcher, steam, telegram, whatsapp]
+
+all_tags = ["AM", "BL", "DS","EG", "MC", "MCL", "ST", "TG", "WH"]
+
