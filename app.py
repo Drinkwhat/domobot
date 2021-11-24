@@ -6,7 +6,6 @@ class Game:
         
     def executable(self):
         return self.exe
-
     def acronym(self):
         return self.acro
     
