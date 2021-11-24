@@ -1,17 +1,25 @@
-among_us = "among us.exe"
-bluestack = "bluestack.exe"
-chrome = "chrome.exe"
-discord = "discord.exe"
-epic_games = "epicgameslauncher.exe"
-minecraft = "javaw.exe"
-minecraft_launcher = "minecraftlauncher.exe"
-steam = "steam.exe"
-telegram = "telegram.exe"
-visual_studio_code = "code.exe"
-whatsapp = "whatsapp.exe"
+class Game:
+    
+    def __init__(self, exe, acro):
+        self.exe = exe
+        self.acro = acro
+        
+    def executable(self):
+        return self.exe
+    def acronym(self):
+        return self.acro
+    
+among_us           = Game("among us.exe",           " AM")
+bluestack          = Game("bluestack.exe",          " BL")
+chrome             = Game("chrome.exe",             " CH")
+discord            = Game("discord.exe",            " DS")
+epic_games         = Game("epic_games.exe",         " EG")
+minecraft_launcher = Game("minecraft_launcher.exe", " ML")
+steam              = Game("steam.exe",              " ST")
+telegram           = Game("telegram.exe",           " TG")
+visual_studio_code = Game("visual_studio_code.exe", " VS")
+whatsapp           = Game("whatsapp.exe",           " WA")
+minecraft          = Game("minecraft.exe",          " M ")
 
-all_games = [among_us, bluestack, chrome, discord, 
-epic_games, minecraft, minecraft_launcher, steam,
- telegram, visual_studio_code, whatsapp]
-
-all_tags = ["AM", "BL", "CH", "DS","EG", "MC", "MCL", "ST", "TG", "VS CODE" "WH"]
+all = [among_us, bluestack, discord, epic_games, minecraft,
+       minecraft_launcher, steam, telegram, whatsapp]

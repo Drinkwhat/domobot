@@ -9,7 +9,7 @@ from telepot.loop import MessageLoop
 import private
 import app
 
-def hide():
+def hide(): # nasconde il terminale sullo schermo
     hide =  GetForegroundWindow()
     ShowWindow(hide, SW_HIDE)
 
@@ -54,25 +54,24 @@ def wait_for_internet_connection():
         pass
 
 def kill_all():
-    for i in range(len(app.all_games)):
-        victim = app.all_games[i]
+    for i in range(len(app.all)):
+        victim = app.all[i]
         kill(victim)
 
 def kill(victim):
-    
+    victim = victim.executable()
     if check_if_process_running(victim):
-        comando = "taskkill /f /im " + victim
-        system(comando)
+        system("taskkill /f /im " + victim)
 
 def check():
 
-    for i in range(len(app.all_tags)):
-        game = app.all_games[i]
-        tag = app.all_tags[i]
+    for i in range(len(app.all)):
+        game = app.all[i].executable()
+        tag = app.all[i].acronym()
         if check_if_process_running(game):
-            bot.sendMessage(chat_id(), tag + green_square())
+            bot.sendMessage(chat_id(), green_square() + tag)
         else:
-            bot.sendMessage(chat_id(), tag + red_square())
+            bot.sendMessage(chat_id(), red_square() + tag)
 
 def update_user():
 
@@ -113,17 +112,22 @@ def handle(msg): #what to do if new message is received
         notify_telegram_point()
         
     elif text == '/ka@imdomobot': # kill all
-        kill(app.all_games)
+        kill(app.all)
+        notify_telegram_point()
+
+    elif text == '/kw':
+        kill(app.whatsapp)
         notify_telegram_point()
         
     else:
         bot.sendMessage(chat_id(), "I don't understand...")
 
-# hide()
+hide()
 sleep(10)
 wait_for_internet_connection()
 bot = telepot.Bot(bot_token())
 MessageLoop(bot, handle).run_as_thread()
+print("sono online")
 bot.sendMessage(chat_id(), 'sono online')
 
 
