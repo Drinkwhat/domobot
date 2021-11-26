@@ -1,2 +1,5 @@
 app_generator.py
 private.py
+prove.py
+__pycache__
+.vs

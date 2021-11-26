@@ -90,20 +90,20 @@ def handle(msg): #what to do if new message is received
 
     if chat_id != private.chat_id:
         bot.sendMessage(chat_id, "WHO ARE YOU?! I WILL TELL MY MASTER")
-        bot.sendMessage(profile_id(), 'Someone contacted me! Here is the information:\n' + msg)
+        bot.sendMessage(private.profile_id, 'Someone contacted me! Here is the information:\n' + msg)
 
     elif text == '/u@imdomobot': # control of active apps
         update_user()
 
     elif text == '/start':
-        bot.sendMessage(chat_id(), "Welcome back Master")
+        bot.sendMessage(chat_id, "Welcome back Master")
 
     elif text == '/shutdown@imdomobot': # Shutdown your computer
-        bot.sendMessage(private.chat_id(), "Shutting down. Bye Bye")
+        bot.sendMessage(private.chat_id, "Shutting down. Bye Bye")
         shutdown_pc()
     
     elif text == '/sleep@imdomobot': # your computer is going to sleep mode
-        bot.sendMessage(private.chat_id(), "I'm going to sleep")
+        bot.sendMessage(private.chat_id, "I'm going to sleep")
         sleep_pc()
     
         
@@ -115,19 +115,22 @@ def handle(msg): #what to do if new message is received
         kill(app.all)
         notify_telegram_point()
 
-    elif text == '/kw':
+    elif text == '/kw@imdomobot':
         kill(app.whatsapp)
         notify_telegram_point()
+
+    elif text == '/kys@imdomobot':
+        notify_telegram_point()
+        
         
     else:
-        bot.sendMessage(chat_id(), "I don't understand...")
+        bot.sendMessage(chat_id, "I don't understand...")
 
-hide()
+# hide()
 sleep(10)
 wait_for_internet_connection()
 bot = telepot.Bot(bot_token())
 MessageLoop(bot, handle).run_as_thread()
-print("sono online")
 bot.sendMessage(chat_id(), 'sono online')
 
 
