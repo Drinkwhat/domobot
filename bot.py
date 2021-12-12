@@ -8,28 +8,15 @@ import socket
 from telepot.loop import MessageLoop
 import private
 import app
+from pygame import mixer
+from emoji import honey, green_square, red_square
 
 def hide(): # nasconde il terminale sullo schermo
     hide =  GetForegroundWindow()
     ShowWindow(hide, SW_HIDE)
 
-def green_square():
-    return u'\U00002705'
-    
-def red_square():
-    return u'\U0000274C'
-
-def profile_id():
-   return private.profile_id()
-
-def chat_id():
-    return private.chat_id
-
-def bot_token():
-    return private.token
-
 def notify_telegram_point():
-    bot.sendMessage(chat_id(), 'Fatto!!!')
+    bot.sendMessage(private.chat_id, 'Fatto!!!')
 
 def check_if_process_running(processName):
     
@@ -50,32 +37,43 @@ def wait_for_internet_connection():
         host = socket.gethostbyname("www.google.com")
         s = socket.create_connection((host, 80), 2)
         return True
+
     except:
         pass
 
 def kill_all():
+
     for i in range(len(app.all)):
+
         victim = app.all[i]
         kill(victim)
 
 def kill(victim):
+
     victim = victim.executable()
+
     if check_if_process_running(victim):
+
         system("taskkill /f /im " + victim)
 
 def check():
 
     for i in range(len(app.all)):
+
         game = app.all[i].executable()
         tag = app.all[i].acronym()
+
         if check_if_process_running(game):
-            bot.sendMessage(chat_id(), green_square() + tag)
+
+            bot.sendMessage(private.chat_id, green_square + tag)
+
         else:
-            bot.sendMessage(chat_id(), red_square() + tag)
+
+            bot.sendMessage(private.chat_id, red_square + tag)
 
 def update_user():
 
-    kill(app.telegram)
+    #kill(app.telegram)
     check()
 
 def shutdown_pc():
@@ -90,9 +88,9 @@ def handle(msg): #what to do if new message is received
 
     if chat_id != private.chat_id:
         bot.sendMessage(chat_id, "WHO ARE YOU?! I WILL TELL MY MASTER")
-        bot.sendMessage(private.profile_id, 'Someone contacted me! Here is the information:\n' + msg)
+        bot.sendMessage(private.profile_id, 'Someone contacted me! Here is the information:\n' + text)
 
-    elif text == '/u@imdomobot': # control of active apps
+    elif text == '/update@imdomobot': # control of active apps
         update_user()
 
     elif text == '/start':
@@ -105,11 +103,6 @@ def handle(msg): #what to do if new message is received
     elif text == '/sleep@imdomobot': # your computer is going to sleep mode
         bot.sendMessage(private.chat_id, "I'm going to sleep")
         sleep_pc()
-    
-        
-    elif text == '/kvs@imdomobot': # kill vs code
-        kill(app.visual_studio_code)
-        notify_telegram_point()
         
     elif text == '/ka@imdomobot': # kill all
         kill(app.all)
@@ -121,18 +114,23 @@ def handle(msg): #what to do if new message is received
 
     elif text == '/kys@imdomobot':
         notify_telegram_point()
-        
-        
+    
+    elif text == '/miele@imdomobot':
+        mixer.music.load("audio/zio_alfios.mp3")
+        mixer.music.play()
+        bot.sendMessage(chat_id, honey)
+
+
     else:
         bot.sendMessage(chat_id, "I don't understand...")
 
 # hide()
 sleep(10)
+mixer.init()
 wait_for_internet_connection()
-bot = telepot.Bot(bot_token())
+bot = telepot.Bot(private.token)
 MessageLoop(bot, handle).run_as_thread()
-bot.sendMessage(chat_id(), 'sono online')
-
+bot.sendMessage(private.chat_id, 'sono online')
 
 while True:
     sleep(10)

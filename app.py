@@ -23,6 +23,7 @@ visual_studio_code = Game("code.exe",               " VS")
 whatsapp           = Game("whatsapp.exe",           " WA")
 minecraft          = Game("minecraft.exe",          " M ")
 devcpp             = Game("devcpp.exe",              "DV")
+disney_plus        = Game("DisneyPlus.exe", "D+")
 
 all = [among_us, bluestack, discord, epic_games, minecraft,
-       minecraft_launcher, steam, telegram, whatsapp, devcpp]
+    minecraft_launcher, steam, telegram, whatsapp, devcpp, disney_plus]
