@@ -1,0 +1,5 @@
+update - Control of active apps
+shutdown - turn off your computer
+sleep -  your computer is going to sleep mode
+ka - close all apps
+miele - 🍯

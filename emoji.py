@@ -1,3 +1,5 @@
 honey           = u'\U0001F36F'
 green_square    = u'\U00002705'
 red_square      = u'\U0000274C'
+russia_flag     = u'\U0001F1F7'
+ucraina_flag    = u'\U0001F1FA'
