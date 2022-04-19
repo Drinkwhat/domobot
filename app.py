@@ -10,7 +10,7 @@ class Game:
     def acronym(self):
         return self.acro
         
-python             = Game("python.exe",             " PY")
+python             = Game("pythonw.exe",            " PY")
 among_us           = Game("among us.exe",           " AM")
 bluestack          = Game("bluestack.exe",          " BL")
 chrome             = Game("chrome.exe",             " CH")
