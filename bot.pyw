@@ -1,4 +1,4 @@
-import private, app, ctypes, psutil, requests, json
+import private, app, ctypes, psutil, requests, json, mysql.connector
 from time import sleep
 from os import system 
 from pygame import mixer
@@ -75,6 +75,9 @@ def update_user():
     #kill(app.telegram)
     check()
 
+def riavvio():
+    system("shutdown /r /f /t")
+    
 def shutdown_pc():
     system('shutdown -s -t 0')
 
@@ -112,7 +115,6 @@ def handle(message): #what to do if new message is received
                 elif command == '/ka@imdomobot': # kill all
                     kill_all()
                     
-
                 elif command == '/kw@imdomobot':
                     kill(app.whatsapp)
 
@@ -135,7 +137,7 @@ def handle(message): #what to do if new message is received
                     reply(message, ucraina_flag + "=" + russia_flag)
                 
                 elif command == '/btc@imdomobot':
-                    reply(message, "Valore di un BTC in " + btc("EUR")["currency"] + ": " + btc("")["amount"])
+                    reply(message, "Valore di un BTC in " + btc("EUR")["currency"] + ": " + btc("EUR")["amount"])
                 
                 elif command == '/lock':
                     ctypes.windll.user32.LockWorkStation()
