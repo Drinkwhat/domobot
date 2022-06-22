@@ -1,3 +1,5 @@
+from os import system 
+
 class Game:
 
     def __init__(self, exe, acro):
@@ -9,7 +11,10 @@ class Game:
         
     def acronym(self):
         return self.acro
-        
+    
+    def kill(self):
+        system("taskkill /f /im " + self.exe)
+
 python             = Game("pythonw.exe",            " PY")
 among_us           = Game("among us.exe",           " AM")
 bluestack          = Game("bluestack.exe",          " BL")

@@ -1,4 +1,4 @@
-import private, app, ctypes, psutil, requests, json, mysql.connector
+import private, app, ctypes, psutil, requests
 from time import sleep
 from os import system 
 from pygame import mixer
